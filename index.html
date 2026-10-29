@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIKAN KEYCHAIN ♡</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff5fa;
+            color: #5a3b48;
+        }
+
+        /* HEADER */
+        header {
+            background-image:
+                linear-gradient(rgba(80,30,50,.35), rgba(80,30,50,.35)),
+                url("img/homekeychain.JPEG");
+            background-size: cover;
+            background-position: center;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: clamp(30px, 5vw, 52px);
+            margin: 0 0 12px;
+            text-shadow: 0 3px 12px #704358;
+        }
+
+        header p {
+            margin: 7px 0;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            background: #f28bb6;
+            padding: 14px 10px;
+            box-shadow: 0 3px 12px #e9c3d3;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            background: white;
+            color: #e45c98;
+        }
+
+        /* TOMBOL */
+        .tombol-beli {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff91bd, #ed5799);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .tombol-beli:hover {
+            background: #d93c83;
+            transform: translateY(-2px);
+        }
+
+        /* SECTION */
+        .konten {
+            padding: 45px 22px;
+            text-align: center;
+            scroll-margin-top: 65px;
+        }
+
+        .konten h2 {
+            color: #d94f8c;
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        .konten > p {
+            line-height: 1.8;
+        }
+
+        /* HOME */
+        .home-content {
+            background: linear-gradient(180deg, #fff8fc, #fff0f7);
+            padding: 48px 20px;
+        }
+
+        .home-content p {
+            max-width: 650px;
+            margin: 10px auto;
+            line-height: 1.8;
+        }
+
+        .home-content .tombol-beli {
+            margin-top: 15px;
+        }
+
+        /* PRODUK */
+        #produk {
+            background: linear-gradient(180deg, #fffafd, #fff5fa);
+        }
+
+        .subjudul {
+            color: #946b7e;
+            margin-bottom: 30px;
+        }
+
+        .daftar-produk {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+            max-width: 1200px;
+            margin: 30px auto 0;
+        }
+
+        .produk {
+            position: relative;
+            overflow: hidden;
+            padding: 12px;
+            text-align: left;
+            background: white;
+            border: 1px solid #f7c5da;
+            border-radius: 17px;
+            box-shadow: 0 5px 18px rgba(205,105,150,.10);
+            transition: .3s;
+        }
+
+        .produk:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(205,105,150,.2);
+        }
+
+        .produk img {
+            display: block;
+            width: 100%;
+            height: 205px;
+            object-fit: cover;
+            background: #fff0f6;
+            border-radius: 11px;
+        }
+
+        .ikon-hati {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #f05b9b;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .produk h3 {
+            color: #773c58;
+            font-size: 17px;
+            margin: 14px 0 8px;
+        }
+
+        .deskripsi-produk {
+            color: #886b7a;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 42px;
+        }
+
+        .harga {
+            color: #ed5795;
+            font-size: 19px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .produk .tombol-beli {
+            width: 100%;
+            text-align: center;
+            padding: 12px 5px;
+            border-radius: 10px;
+        }
+
+        /* FORM UMUM */
+        .kotak-form {
+            background: white;
+            max-width: 680px;
+            margin: 25px auto;
+            padding: 28px;
+            border: 1px solid #f4bfd5;
+            border-radius: 18px;
+            text-align: left;
+            box-shadow: 0 6px 22px rgba(205,105,150,.09);
+        }
+
+        .kotak-form label {
+            display: block;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            color: #704358;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .kotak-form input,
+        .kotak-form select,
+        .kotak-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e9c3d3;
+            border-radius: 9px;
+            background: #fffafd;
+            color: #5a3b48;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .kotak-form input:focus,
+        .kotak-form select:focus,
+        .kotak-form textarea:focus {
+            outline: none;
+            border-color: #ed79a8;
+        }
+
+        .kotak-form textarea {
+            resize: vertical;
+        }
+
+        .kotak-form button {
+            width: 100%;
+            margin-top: 22px;
+        }
+
+        /* CUSTOM */
+        #custom {
+            background: #fff0f7;
+        }
+
+        #custom > p {
+            max-width: 650px;
+            margin: 10px auto;
+        }
+
+        /* PESAN */
+        #pesanan {
+            background: linear-gradient(180deg, #fffafd, #fff0f7);
+        }
+
+        .pesan-info {
+            max-width: 650px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            color: #886b7a;
+        }
+
+        .catatan-pesan {
+            padding: 14px;
+            background: #fff0f7;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .total-harga {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            background: #fff0f7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .total-harga strong {
+            color: #e45c98;
+            font-size: 19px;
+        }
+
+        /* TENTANG */
+        .tentang {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: white;
+            border: 1px solid #f4bfd5;
+            border-radius: 18px;
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 30px;
+            text-align: left;
+            line-height: 1.9;
+            box-shadow: 0 5px 18px rgba(205,105,150,.08);
+        }
+
+        .tentang-teks {
+            flex: 1;
+        }
+
+        .tentang h3 {
+            color: #d94f8c;
+            margin-top: 0;
+        }
+
+        .tentang-foto {
+            flex: 0 0 38%;
+        }
+
+        .tentang-foto img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 13px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #ff91bd, #ed5799);
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 25px;
+            line-height: 1.7;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* TABLET */
+        @media (max-width: 950px) {
+            .daftar-produk {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 17px;
+            }
+
+            .produk img {
+                height: 180px;
+            }
+        }
+
+        /* HP */
+        @media (max-width: 600px) {
+            header {
+                min-height: 300px;
+                padding: 50px 15px;
+            }
+
+            nav {
+                gap: 2px;
+                padding: 10px 4px;
+            }
+
+            nav a {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .konten {
+                padding: 32px 14px;
+            }
+
+            .konten h2 {
+                font-size: 24px;
+            }
+
+            .daftar-produk {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .produk {
+                padding: 9px;
+                border-radius: 13px;
+            }
+
+            .produk img {
+                height: 140px;
+            }
+
+            .ikon-hati {
+                top: 15px;
+                right: 15px;
+                width: 26px;
+                height: 26px;
+            }
+
+            .produk h3 {
+                font-size: 14px;
+                margin-top: 10px;
+            }
+
+            .deskripsi-produk {
+                font-size: 12px;
+                min-height: 58px;
+            }
+
+            .harga {
+                font-size: 16px;
+            }
+
+            .produk .tombol-beli {
+                font-size: 11px;
+                padding: 10px 4px;
+            }
+
+            .kotak-form {
+                padding: 18px;
+            }
+
+            .tentang {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .tentang-foto {
+                width: 100%;
+                flex: auto;
+            }
+
+            .tentang-foto img {
+                height: 190px;
+            }
+
+            .total-harga strong {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="home">
+        <h1>KIKAN KEYCHAIN ♡</h1>
+        <p>Your Little Keychain Story</p>
+        <p>CUTE • CUSTOM • HANDMADE</p>
+        <a href="#produk" class="tombol-beli">Lihat Produk ♡</a>
+    </header>
+
+    <!-- NAVIGASI -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#produk">Produk</a>
+        <a href="#custom">Custom</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#pesanan">Pesan</a>
+    </nav>
+
+    <!-- HOME -->
+    <section class="konten home-content">
+        <h2>♡ Welcome to Kikan Keychain! ♡</h2>
+
+        <p>
+            Temukan gantungan kunci lucu yang bisa kamu sesuaikan
+            dengan gaya dan kepribadianmu.
+        </p>
+
+        <p>
+            Pilih desain favoritmu atau buat keychain custom
+            sesuai keinginanmu!
+        </p>
+
+        <a href="#custom" class="tombol-beli">
+            Buat Keychain ♡
+        </a>
+    </section>
+
+    <!-- PRODUK -->
+    <section class="konten" id="produk">
+        <h2>♡ Produk Pilihan Kami ♡</h2>
+        <p class="subjudul">Pilih gantungan kunci favoritmu!</p>
+
+        <div class="daftar-produk">
+
+            <div class="produk">
+                <span class="ikon-hati">♡</span>
+                <img src="img/bearkeychain.JPEG" alt="Bear Keychain">
+                <h3>Bear Keychain</h3>
+                <p class="deskripsi-produk">Gantungan boneka bear yang lucu.</p>
+                <p class="harga">Rp25.000</p>
+                <button class="tombol-beli" onclick="pilihProduk('Bear Keychain')">♡ Beli Sekarang</button>
+            </div>
+
+            <div class="produk">
+                <span class="ikon-hati">♡</span>
+                <img src="img/photokeychain.JPEG" alt="Photo Keychain">
+                <h3>Photo Keychain</h3>
+                <p class="deskripsi-produk">Gantungan foto aesthetic penuh kenangan.</p>
+                <p class="harga">Rp22.000</p>
+                <button class="tombol-beli" onclick="pilihProduk('Photo Keychain')">♡ Beli Sekarang</button>
+            </div>
+
+            <div class="produk">
+                <span class="ikon-hati">♡</span>
+                <img src="img/flowerkeychain.JPEG" alt="Flower Keychain">
+                <h3>Flower Keychain</h3>
+                <p class="deskripsi-produk">Gantungan bunga dengan warna cantik.</p>
+                <p class="harga">Rp20.000</p>
+                <button class="tombol-beli" onclick="pilihProduk('Flower Keychain')">♡ Beli Sekarang</button>
+            </div>
+
+            <div class="produk">
+                <span class="ikon-hati">♡</span>
+                <img src="img/bunnykeychain.JPEG" alt="Bunny Keychain">
+                <h3>Bunny Keychain</h3>
+                <p class="deskripsi-produk">Karakter kelinci yang menggemaskan.</p>
+                <p class="harga">Rp28.000</p>
+                <button class="tombol-beli" onclick="pilihProduk('Bunny Keychain')">♡ Beli Sekarang</button>
+            </div>
+
+            <div class="produk">
+                <span class="ikon-hati">♡</span>
+                <img src="img/strawberrykeychain.JPEG" alt="Strawberry Keychain">
+                <h3>Strawberry Keychain</h3>
+                <p class="deskripsi-produk">Desain stroberi yang unik dan lucu.</p>
+                <p class="harga">Rp23.000</p>
+                <button class="tombol-beli" onclick="pilihProduk('Strawberry Keychain')">♡ Beli Sekarang</button>
+            </div>
+
+            <div class="produk">
+                <span class="ikon-hati">♡</span>
+                <img src="img/kittykeychain.JPEG" alt="Kitty Keychain">
+                <h3>Kitty Keychain</h3>
+                <p class="deskripsi-produk">Gantungan karakter kucing yang cute.</p>
+                <p class="harga">Rp27.000</p>
+                <button class="tombol-beli" onclick="pilihProduk('Kitty Keychain')">♡ Beli Sekarang</button>
+            </div>
+
+            <div class="produk">
+                <span class="ikon-hati">♡</span>
+                <img src="img/tulipkeychain.JPEG" alt="Tulip Keychain">
+                <h3>Tulip Keychain</h3>
+                <p class="deskripsi-produk">Bunga tulip yang simpel dan aesthetic.</p>
+                <p class="harga">Rp21.000</p>
+                <button class="tombol-beli" onclick="pilihProduk('Tulip Keychain')">♡ Beli Sekarang</button>
+            </div>
+
+            <div class="produk">
+                <span class="ikon-hati">♡</span>
+                <img src="img/heartkeychain.JPEG" alt="Heart Keychain">
+                <h3>Heart Keychain</h3>
+                <p class="deskripsi-produk">Gantungan berbentuk hati yang manis.</p>
+                <p class="harga">Rp19.000</p>
+                <button class="tombol-beli" onclick="pilihProduk('Heart Keychain')">♡ Beli Sekarang</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CUSTOM -->
+    <section class="konten" id="custom">
+        <h2>Custom Your Own Keychain ♡</h2>
+        <p>
+            Buat gantungan kunci sesuai keinginanmu!
+            Pilih warna, karakter, dan bentuk favoritmu.
+        </p>
+
+        <div class="kotak-form">
+            <form id="formCustom">
+
+                <label for="namaCustom">Nama atau Inisial</label>
+                <input type="text" id="namaCustom"
+                       placeholder="Masukkan nama atau inisial" required>
+
+                <label for="warna">Warna Keychain</label>
+                <select id="warna" required>
+                    <option value="">Pilih warna</option>
+                    <option>Pink</option>
+                    <option>Putih</option>
+                    <option>Biru</option>
+                    <option>Ungu</option>
+                    <option>Hitam</option>
+                    <option>Pastel Mix</option>
+                    <option>Warna lainnya</option>
+                </select>
+
+                <label for="karakter">Karakter</label>
+                <select id="karakter" required>
+                    <option value="">Pilih karakter</option>
+                    <option>Boneka</option>
+                    <option>Kucing</option>
+                    <option>Kelinci</option>
+                    <option>Bunga</option>
+                    <option>Buah</option>
+                    <option>Desain sendiri</option>
+                </select>
+
+                <label for="bentuk">Bentuk Keychain</label>
+                <select id="bentuk" required>
+                    <option value="">Pilih bentuk</option>
+                    <option>Hati</option>
+                    <option>Bulat</option>
+                    <option>Bintang</option>
+                    <option>Bunga</option>
+                    <option>Karakter</option>
+                    <option>Bentuk lainnya</option>
+                </select>
+
+                <label for="desain">Detail Desain</label>
+                <textarea id="desain" rows="4"
+                          placeholder="Ceritakan desain yang kamu inginkan"></textarea>
+
+                <button type="button" class="tombol-beli" onclick="gunakanCustom()">
+                    Gunakan Desain Custom ♡
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="konten" id="tentang">
+        <h2>Tentang Kikan Keychain ♡</h2>
+
+        <div class="tentang">
+            <div class="tentang-teks">
+                <h3>Your Little Keychain Story</h3>
+                <p>
+                    Kikan Keychain adalah toko gantungan kunci
+                    yang menyediakan berbagai desain lucu,
+                    menarik, dan bisa disesuaikan dengan keinginanmu.
+                </p>
+                <p>
+                    Kami ingin setiap keychain menjadi aksesori
+                    kecil yang punya cerita dan makna tersendiri.
+                    Pilih desain favoritmu dan buat harimu lebih berwarna!
+                </p>
+            </div>
+
+            <div class="tentang-foto">
+                <img src="img/home-keychain.jpeg" alt="Koleksi Kikan Keychain">
+            </div>
+        </div>
+    </section>
+
+    <!-- PESAN -->
+    <section class="konten" id="pesanan">
+        <h2>♡ Pesan Keychain Kamu ♡</h2>
+
+        <p class="pesan-info">
+            Sudah menemukan keychain favoritmu?
+            Isi formulir di bawah ini untuk melakukan pemesanan.
+            Pesananmu akan diteruskan ke WhatsApp toko.
+        </p>
+
+        <div class="kotak-form">
+            <form id="formPesanan">
+
+                <label for="namaPesan">Nama Pembeli</label>
+                <input type="text" id="namaPesan"
+                       placeholder="Masukkan nama lengkap"
+                       required>
+
+                <label for="kontak">Nomor HP Pembeli</label>
+                <input type="tel" id="kontak"
+                       placeholder="Contoh: 081234567890"
+                       required>
+
+                <label for="pilihanProduk">Pilih Produk</label>
+                <select id="pilihanProduk" required>
+                    <option value="">-- Pilih Keychain --</option>
+                    <option value="Bear Keychain">Bear Keychain - Rp25.000</option>
+                    <option value="Photo Keychain">Photo Keychain - Rp22.000</option>
+                    <option value="Flower Keychain">Flower Keychain
